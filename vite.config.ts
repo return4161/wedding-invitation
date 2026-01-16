@@ -20,8 +20,14 @@ let base = "/"
 try {
   const url = new URL(pkg.homepage)
   base = url.pathname
+  if (!base.endsWith("/")) {
+    base = base + "/"
+  }
 } catch (e) {
   base = pkg.homepage || "/"
+  if (!base.endsWith("/")) {
+    base = base + "/"
+  }
 }
 
 // https://vite.dev/config/
